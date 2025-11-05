@@ -1,240 +1,205 @@
-Medical Tracker – Cross-Platform Health Monitoring App
+# Medical Tracker – Cross-Platform Health Monitoring App
 
-Medical Tracker is a simple cross-platform application built with Vue 3, Pinia, and Capacitor, allowing healthcare professionals to view a list of patients and record basic vital measurements (blood pressure and heart rate).
-The project includes:
-✔ Web application
-✔ Mobile packaging (Android & iOS)
-✔ Local persistence (LocalStorage)
-✔ Unit tests (Vitest)
-✔ E2E tests (Playwright)
-✔ CI/CD simulation with GitLab
+Medical Tracker is a simple cross-platform application built with **Vue 3**, **Pinia**, and **Capacitor**, allowing healthcare professionals to view a list of patients and record basic vital measurements (blood pressure and heart rate).
 
-✅ Features
-Patient Management
+The project includes:  
+✔ Web application  
+✔ Mobile packaging (Android & iOS)  
+✔ Local persistence (LocalStorage)  
+✔ Unit tests (Vitest)  
+✔ E2E tests (Playwright)  
+✔ CI/CD simulation with GitLab  
 
-Display a list of patients
+---
 
-View a patient’s details
+## ✅ Features
 
-Show a history of measurements
+### **Patient Management**
+- Display a list of patients  
+- View patient details  
+- Show a full timeline of measurements  
 
-Measurements
+### **Measurements**
+- Add blood pressure (SYS / DIA)  
+- Add heart rate (BPM)  
+- Numeric validation with error messages  
+- Sorted timeline of measurements  
+- Status indicator: **Normal / High**  
 
-Add blood pressure (SYS/DIA) and heart rate (BPM)
+### **Data Persistence**
+- Data stored via mock API (json-server)  
+- Automatic sync between store and LocalStorage  
 
-Numeric validation with error messages
+### **Mobile (Capacitor)**
+- Android + iOS builds  
+- Icon & splash screen generation  
+- Ready for Google Play + App Store submission  
 
-Sorted timeline of measurements
+### **Testing**
+- Unit tests (Pinia store)  
+- Component tests (inputs, validation states)  
+- Playwright E2E flow (open app, add measurement)  
 
-Status indicator (Normal / High)
+---
 
-Data Persistence
+## ✅ Tech Stack
 
-Measured data stored both via mock API (json-server) and LocalStorage
+### **Frontend**
+- Vue 3 (Composition API)  
+- Pinia  
+- Vue Router  
+- TailwindCSS  
+- TypeScript  
 
-Auto-sync between store and LocalStorage
+### **Backend Mock**
+- json-server (REST API)  
+- LocalStorage persistence  
 
-Mobile (Capacitor)
+### **Mobile**
+- Capacitor 7  
+- Android Studio / Xcode  
 
-Android and iOS builds
+### **Testing**
+- Vitest  
+- Vue Test Utils  
+- Playwright (E2E)  
 
-Icons & splash screen generation
+### **Tooling**
+- Vite  
+- Git  
+- GitLab CI  
 
-Ready for Google Play + App Store submission
+---
 
-Testing
+## ✅ Installation
 
-Unit tests for Pinia store
-
-Component tests (inputs, error states)
-
-Playwright E2E flow (open app, add measurement)
-
-✅ Tech Stack
-Frontend
-
-Vue 3 + Composition API
-
-Pinia
-
-Vue Router
-
-TailwindCSS
-
-TypeScript
-
-Backend Mock
-
-json-server (local REST API)
-
-LocalStorage (device persistence)
-
-Mobile
-
-Capacitor 7
-
-Android Studio / Xcode
-
-Testing
-
-Vitest
-
-Vue Test Utils
-
-Playwright (E2E)
-
-Tooling
-
-Vite
-
-Git
-
-GitLab CI
-
-✅ Installation
-Install dependencies
-
+### **Install dependencies**
+```bash
 npm install
+```
 
-Start the web app
-
+### **Start the web app**
+```bash
 npm run dev
+```
 
-Start mock API
-
-Runs a fake REST server on http://localhost:4000
+### **Start mock API (json-server)**
+```bash
 npm run dev:api
+```
+run on:
+https://loalhost:4000
 
-✅ Build for Production
-Web build
+---
+## ✅ Build for production
 
+
+### **Web build**
+```bash
 npm run build
+```
 
-Preview production build
-
+### **Preview**
+```bash
 npm run preview
+```
 
-✅ Mobile (Capacitor)
-Sync native platforms
+---
+## ✅ Mobile (Capacitor)
 
+### **Sync native platforms**
+```bash
 npx cap sync
+```
 
-Open Android project
-
+### **Open Android project**
+```bash
 npx cap open android
+```
 
-Open iOS project
-
+### **Open iOS project**
+```bash
 npx cap open ios
+```
 
 Before releasing to stores:
+- Configure icons + splash
+- Increment version
+- Generate signed bundle
+- Archive iOS build
 
-Configure icons + splash
-
-Increment version
-
-Generate signed bundle
-
-Archive iOS build
-
-Full mobile checklist is available in:
+Full mobile release checklist:
+```bash
 docs/deploy-checklist.md
+```
 
-✅ Tests
-Run all unit tests
+---
+## ✅ Tests
 
+### **Run all unit tests**
+```bash
 npm test
+```
 
-Run tests in UI mode
-
+### **UI mode**
+```bash
 npm run test:ui
+```
 
-Run end-to-end tests
-
+### **End-to-end tests**
+```bash
 npm run e2e
-(or)
-npx playwright test
+```
 
-Playwright will automatically:
+Playwright automatically:
+- Launches a local Vite server
+- Runs in headless mode
+- Closes server after tests
 
-Launch a local server with Vite
+---
+## ✅ Folder structure
 
-Run tests in headless mode
-
-Close server after completion
-
-✅ Folder Structure
-
+### **Run all unit tests**
+```bash
 src/
-• components/ — shared UI components
-• stores/ — Pinia stores
-• views/ — pages (Home, Patient Details)
-• composables/ — reusable logic
-• services/ — API client (json-server mock)
+  components/        # Shared UI components
+  stores/            # Pinia stores
+  views/             # Pages (Home, Patient Details)
+  composables/       # Reusable logic
+  services/          # API client (json-server mock)
 
 tests/
-• unit/ — Vitest unit tests
-• e2e/ — Playwright tests
+  unit/              # Vitest unit tests
+  e2e/               # Playwright tests
 
 docs/
-• deploy-checklist.md
-• report.md
+  deploy-checklist.md
+  report.md
 
-✅ CI/CD (GitLab)
+```
 
+---
+## ✅ CI/CD (GitLab)
 The .gitlab-ci.yml includes:
+- Install step
+- Build step
+- Unit tests
+- Playwright E2E tests
+- Simulated deploy stage (dummy artifact)
 
-Install step
+Pipeline is compatible with real GitLab CI.
 
-Build step
+---
+## ✅ Conclusion
 
-Unit tests
+Medical Tracker demonstrates a complete and realistic workflow:
 
-Playwright E2E tests
+- Vue 3 architecture
+- Pinia store design
+- Form validation
+- Local persistence
+- Mobile packaging
+- Automated testing
+- CI/CD pipeline
 
-Simulated deploy stage (dummy artifact)
 
-Pipeline is ready for a real GitLab environment.
-
-✅ Known Limitations (Expected for a Test Project)
-
-No authentication flow
-
-No backend persistence (mock only)
-
-No user-generated patients (predefined list)
-
-Mobile permissions are minimal
-
-No advanced analytics or charts
-
-These limitations are intentional given the scope.
-
-✅ Future Improvements
-
-Add patient management (CRUD)
-
-Add more measurement types
-
-Add charts (blood pressure trends)
-
-Better offline-first support with IndexedDB
-
-Sync with a real backend (Symfony / NestJS)
-
-Push notifications
-
-Role-based access (nurses / doctors)
-
-✅ Conclusion
-
-Medical Tracker demonstrates a complete, functional workflow:
-✔ Vue 3 architecture
-✔ Pinia store design
-✔ Form validation
-✔ Local persistence
-✔ Mobile packaging
-✔ Automated testing
-✔ CI/CD pipeline
-
-It serves as a solid foundation for a medical or health-related cross-platform application.
