@@ -1,0 +1,42 @@
+stages:
+  - build
+  - test
+
+# ---------- BUILD (Vite + type-check) ----------
+build:
+  image: node:20
+  stage: build
+  script:
+    - npm ci
+    - npm run build         # = vue-tsc -b && vite build
+  artifacts:
+    paths:
+      - dist
+    expire_in: 1 week
+
+# ---------- UNIT TESTS (Vitest) ----------
+test:unit:
+  image: node:20
+  stage: test
+  script:
+    - npm ci
+    - npm run test          # vitest --run
+  needs: []                 # build independant
+  allow_failure: false
+
+# ---------- E2E (Playwright) ----------
+test:e2e:
+  image: mcr.microsoft.com/playwright:v1.56.1-jammy
+  stage: test
+  needs: ["build"] 
+  script:
+    - npm ci
+    - npm run e2e 
+  variables:
+    PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
+    CI: "true"
+  artifacts:
+    when: on_failure
+    paths:
+      - test-results/
+    expire_in: 1 week

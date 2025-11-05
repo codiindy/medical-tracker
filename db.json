@@ -1,0 +1,58 @@
+{
+  "patients": [
+    {
+      "id": "1",
+      "name": "Maya Collins"
+    },
+    {
+      "id": "2",
+      "name": "Ethan Lewis"
+    },
+    {
+      "id": "3",
+      "name": "Sofia Ramirez"
+    },
+    {
+      "id": "4",
+      "name": "Lucas Bennett"
+    },
+    {
+      "id": "5",
+      "name": "Emma Fischer"
+    }
+  ],
+  "measures": [
+    {
+      "id": "m-001",
+      "patientId": 2,
+      "date": "2025-11-05T16:00:00Z",
+      "sys": 118,
+      "dia": 76,
+      "bpm": 72
+    },
+    {
+      "id": "9a40",
+      "patientId": 1,
+      "date": "2025-11-05T16:30:16.282Z",
+      "sys": 60,
+      "dia": 40,
+      "bpm": 30
+    },
+    {
+      "id": "d5d5",
+      "patientId": 1,
+      "date": "2025-11-05T16:30:51.473Z",
+      "sys": 70,
+      "dia": 89,
+      "bpm": 80
+    },
+    {
+      "id": "9bde",
+      "patientId": 4,
+      "date": "2025-11-05T18:13:21.038Z",
+      "sys": 68,
+      "dia": 56,
+      "bpm": 87
+    }
+  ]
+}

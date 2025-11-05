@@ -1,0 +1,41 @@
+{
+  "name": "medical-tracker",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:api": "json-server --watch db.json --port 4000",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview --port 5173 --strictPort",
+    "test": "vitest --run",
+    "test:ui": "vitest",
+    "e2e": "playwright test",
+    "pree2e": "npm run build",
+    "e2e:install": "playwright install --with-deps"
+  },
+  "dependencies": {
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "pinia": "^3.0.3",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@tailwindcss/postcss": "^4.1.16",
+    "@types/jsdom": "^27.0.0",
+    "@types/node": "^24.6.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.8.1",
+    "cypress": "^15.5.0",
+    "jsdom": "^27.1.0",
+    "json-server": "^1.0.0-beta.3",
+    "tailwindcss": "^4.1.16",
+    "typescript": "~5.9.3",
+    "vite": "^7.1.7",
+    "vitest": "^4.0.7",
+    "vue-tsc": "^3.1.0"
+  }
+}
